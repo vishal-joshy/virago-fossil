@@ -1,0 +1,59 @@
+.header {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  z-index: 100;
+}
+
+.header__logo {
+  width: 100px;
+  margin: 0 15px;
+  color: white;
+}
+
+.header__search {
+  display: flex;
+  flex: 1;
+  border-radius: 24px;
+}
+
+.header__search-input {
+  flex: 1;
+}
+
+.header__search-icon {
+  background: black;
+  color: whitesmoke;
+  border: solid 1px white;
+  box-sizing: border-box;
+}
+
+.header__nav-options {
+  color: white;
+}
+
+.header__nav {
+  display: flex;
+}
+
+.header__nav-option {
+  color: white;
+  padding: 1em;
+}
+
+.header__cart {
+  display: flex;
+  margin-right: 5px;
+}
+
+.header__cart-icon {
+  color: white;
+  background-color: black;
+}
+
+.header__cart-count {
+  color: white;
+}
