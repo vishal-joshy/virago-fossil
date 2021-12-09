@@ -21,14 +21,17 @@
 }
 
 .header__search-input {
-  flex: 1;
+  height: 12px;
+  padding: 10px;
+  border: none;
+  width: 100%;
 }
 
 .header__search-icon {
-  background: black;
-  color: whitesmoke;
-  border: solid 1px white;
-  box-sizing: border-box;
+  background: white;
+  color: black;
+  padding: 5px;
+  height: 22px !important;
 }
 
 .header__nav-options {
