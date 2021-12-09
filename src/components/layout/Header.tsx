@@ -3,6 +3,7 @@ import logo from "../../logo.svg";
 import "./Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 function Header(): ReactElement {
   const logo = "VIRAGO";
@@ -18,10 +19,12 @@ function Header(): ReactElement {
         <div className="header__nav-option">SignIn</div>
         <div className="header__nav-option">Orders</div>
       </div>
-      <div className="header__cart">
-        <ShoppingCartIcon className="header__cart-icon" />
-        <span className="header__cart-count">10</span>
-      </div>
+      <Link to="checkout">
+        <div className="header__cart">
+          <ShoppingCartIcon className="header__cart-icon" />
+          <span className="header__cart-count">10</span>
+        </div>
+      </Link>
     </div>
   );
 }
