@@ -10,7 +10,9 @@ function Header(): ReactElement {
 
   return (
     <div className="header">
-      <div className="header__logo">{logo}</div>
+      <Link to="/">
+        <div className="header__logo">{logo}</div>
+      </Link>
       <div className="header__search">
         <input type="text" className="header__search-input" />
         <SearchIcon className="header__search-icon" />
@@ -19,7 +21,7 @@ function Header(): ReactElement {
         <div className="header__nav-option">SignIn</div>
         <div className="header__nav-option">Orders</div>
       </div>
-      <Link to="checkout">
+      <Link to="/checkout">
         <div className="header__cart">
           <ShoppingCartIcon className="header__cart-icon" />
           <span className="header__cart-count">10</span>
