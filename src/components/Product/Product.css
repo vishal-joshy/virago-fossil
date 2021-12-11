@@ -12,18 +12,19 @@
   z-index: 1;
 }
 
-.product > img {
+.product__image {
   max-height: 200px;
   width: 100px;
   object-fit: contain;
   margin-bottom: 15px;
 }
 
-.product > button {
+.product__button {
   background: black;
   color: white;
   border: 1px solid white;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .product__info {
@@ -38,4 +39,24 @@
 
 .product__rating {
   display: flex;
+}
+
+.checkoutProduct {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.checkoutProduct__info {
+  padding-left: 20px;
+}
+
+.checkoutProduct__image {
+  object-fit: contain;
+  width: 180px;
+  height: 180px;
+}
+.checkoutProduct__title {
+  font-size: 17px;
+  font-weight: 800;
 }
