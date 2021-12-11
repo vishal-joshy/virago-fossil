@@ -4,8 +4,10 @@ import "./Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../store/hooks";
 
 function Header(): ReactElement {
+  const cartItems = useAppSelector((state) => state.basket.items);
   const logo = "VIRAGO";
 
   return (
@@ -18,13 +20,15 @@ function Header(): ReactElement {
         <SearchIcon className="header__search-icon" />
       </div>
       <div className="header__nav">
-        <div className="header__nav-option">SignIn</div>
+        <Link to="/login">
+          <div className="header__nav-option">SignIn</div>
+        </Link>
         <div className="header__nav-option">Orders</div>
       </div>
       <Link to="/checkout">
         <div className="header__cart">
           <ShoppingCartIcon className="header__cart-icon" />
-          <span className="header__cart-count">10</span>
+          <span className="header__cart-count">{cartItems.length}</span>
         </div>
       </Link>
     </div>
