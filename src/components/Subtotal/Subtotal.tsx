@@ -2,9 +2,12 @@ import React, { ReactElement } from "react";
 import CurrencyFormat from "./CurrencyFormat";
 import "./Subtotal.css";
 
-interface Props {}
+interface Props {
+  items: number;
+  total: number;
+}
 
-function Subtotal({}: Props): ReactElement {
+function Subtotal({ items, total }: Props): ReactElement {
   const giftText = "This order contains a gift";
   const checkoutText = "Proceed to checkout";
   return (
@@ -13,7 +16,7 @@ function Subtotal({}: Props): ReactElement {
         renderText={(value: number) => (
           <>
             <p>
-              Subtotal():
+              Subtotal({items}):
               <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
@@ -27,7 +30,7 @@ function Subtotal({}: Props): ReactElement {
         suffix=""
         thousandSeperator={2}
         displayType="text"
-        value={100}
+        value={total}
       />
       <button>{checkoutText}</button>
     </div>
