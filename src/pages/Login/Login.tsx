@@ -1,27 +1,45 @@
 import React, { ReactElement, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-
-interface Props {}
+import { auth } from "../../firebase/firebaseConfig";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { Password } from "@mui/icons-material";
 
 interface Credential {
   [key: string]: string;
 }
 
-function Login({}: Props): ReactElement {
-  const [credentials, setCredentials] = useState({});
+function Login(): ReactElement {
+  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
   const tncText =
     "By signing-in you agree to Virago's Condition of User & Sale.Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice";
 
-  const onFormInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const result: Credential = {};
-    result[e.target.id] = e.target.value;
+    result[event.target.id] = event.target.value;
     setCredentials({ ...credentials, ...result });
+    console.log(credentials);
   };
 
-  const submitLoginForm = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(credentials);
+  const handleLogin = (event: React.FormEvent) => {
+    event.preventDefault();
+    const { email, password } = credentials;
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleRegister = async () => {
+    const { email, password } = credentials;
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        console.log(res);
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -31,17 +49,19 @@ function Login({}: Props): ReactElement {
       </Link>
       <div className="login__container">
         <h1>Sign In</h1>
-        <form onSubmit={(e) => submitLoginForm(e)}>
+        <form onSubmit={(e) => handleLogin(e)}>
           <h5>email</h5>
-          <input type="email" name="" id="email" onChange={(e) => onFormInput(e)} />
+          <input type="email" name="" id="email" onChange={(e) => handleChange(e)} />
           <h5>Password</h5>
-          <input type="password" name="" id="password" onChange={(e) => onFormInput(e)} />
+          <input type="password" name="" id="password" onChange={(e) => handleChange(e)} />
           <button className="login__signInButton" type="submit">
             Sign In
           </button>
         </form>
         <p>{tncText}</p>
-        <button className="login__registerButton">Create Virago Account</button>
+        <button className="login__registerButton" onClick={handleRegister}>
+          Create Virago Account
+        </button>
       </div>
     </div>
   );
