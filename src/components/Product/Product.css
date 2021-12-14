@@ -47,16 +47,16 @@
   margin-bottom: 20px;
 }
 
-.checkoutProduct__info {
+.checkoutproduct__info {
   padding-left: 20px;
 }
 
-.checkoutProduct__image {
+.checkoutproduct__image {
   object-fit: contain;
   width: 180px;
   height: 180px;
 }
-.checkoutProduct__title {
+.checkoutproduct__title {
   font-size: 17px;
   font-weight: 800;
 }

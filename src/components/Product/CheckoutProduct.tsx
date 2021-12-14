@@ -2,31 +2,26 @@ import React, { ReactElement } from "react";
 import "./Product.css";
 import CurrencyFormat from "../Subtotal/CurrencyFormat";
 import { useAppDispatch } from "../../store/hooks";
-import { addToBasket, removeFromBasket } from "../../store/basket/basketSlice";
+import { removeFromBasket } from "../../store/basket/basketSlice";
+import { product } from "./Product";
 
 interface Props {
   data: product;
 }
 
-export interface product {
-  id: number;
-  info: string;
-  price: number;
-  rating: number;
-}
-
-function Product({ data }: Props): ReactElement {
+function CheckoutProduct({ data }: Props): ReactElement {
   const dispatch = useAppDispatch();
-  const buttonText = "Add to Cart";
-  
-  const addToCart = () => {
-    dispatch(addToBasket(data));
+  const buttonText = "Remove from cart";
+
+  const removeFromCart = () => {
+    dispatch(removeFromBasket(data));
   };
 
   return (
-    <div className="product">
-      <div className="product__info">
-        <p className="product__title">{data.info}</p>
+    <div className="checkoutProduct">
+      <img className="checkoutProduct__image" src="" alt="product" />
+      <div className="checkoutProduct__info">
+        <p className="checkoutProduct__title">{data.info}</p>
         <p className="product__price">
           <CurrencyFormat
             renderText={(value: number) => <>{value}</>}
@@ -39,13 +34,12 @@ function Product({ data }: Props): ReactElement {
           />
         </p>
         <p className="product__rating">{Array(data.rating).fill("*", 0, data.rating)}</p>
+        <button className="product__button" onClick={removeFromCart}>
+          {buttonText}
+        </button>
       </div>
-      <img className="product__images" src="" alt="product" />
-      <button className="product__button" onClick={addToCart}>
-        {buttonText}
-      </button>
     </div>
   );
 }
 
-export default Product;
+export default CheckoutProduct;
