@@ -12,6 +12,7 @@ interface Credential {
 function Login(): ReactElement {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const logo = "VIRAGO";
   const tncText =
     "By signing-in you agree to Virago's Condition of User & Sale.Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice";
 
@@ -45,7 +46,7 @@ function Login(): ReactElement {
   return (
     <div className="login">
       <Link to="/">
-        <img src="" alt="logo" className="login__logo" />
+        <div className="login__logo">{logo}</div>
       </Link>
       <div className="login__container">
         <h1>Sign In</h1>
