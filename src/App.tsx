@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Checkout from "./pages/Checkout/Checkout";
 import Login from "./pages/Login/Login";
-import { auth } from "./firebase/firebaseConfig";
+import { auth } from "./firebase/firebase";
 import { useAppDispatch } from "./store/hooks";
 import { setUser } from "./store/user/userSlice";
 

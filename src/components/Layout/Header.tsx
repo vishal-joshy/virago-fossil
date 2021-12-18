@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
-import { auth } from "../../firebase/firebaseConfig";
+import { auth } from "../../firebase/firebase";
 
 function Header(): ReactElement {
   const cartItems = useAppSelector((state) => state.basket.items);

@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { auth } from "../../firebase/firebaseConfig";
+import { auth } from "../../firebase/firebase";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { Password } from "@mui/icons-material";
 
