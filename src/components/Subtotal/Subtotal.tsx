@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { useNavigate } from "react-router-dom";
 import CurrencyFormat from "./CurrencyFormat";
 import "./Subtotal.css";
 
@@ -8,8 +9,12 @@ interface Props {
 }
 
 function Subtotal({ items, total }: Props): ReactElement {
+  const navigate = useNavigate();
   const giftText = "This order contains a gift";
   const checkoutText = "Proceed to checkout";
+  const redirectToPayment = () => {
+    navigate("/payment");
+  };
   return (
     <div className="subtotal">
       <CurrencyFormat
@@ -32,7 +37,7 @@ function Subtotal({ items, total }: Props): ReactElement {
         displayType="text"
         value={total}
       />
-      <button>{checkoutText}</button>
+      <button onClick={redirectToPayment}>{checkoutText}</button>
     </div>
   );
 }

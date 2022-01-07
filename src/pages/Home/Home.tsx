@@ -13,7 +13,7 @@ const products = {
     { id: 3, info: "product1", price: 100, rating: 4 },
     { id: 4, info: "product2", price: 200, rating: 3 },
     { id: 5, info: "product3", price: 100, rating: 4 },
-],
+  ],
   row3: [{ id: 6, info: "product2", price: 200, rating: 3 }],
 };
 
